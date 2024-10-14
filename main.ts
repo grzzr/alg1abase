@@ -1,22 +1,15 @@
-function solução () {
+function solucionar () {
 	
 }
-function tarefa () {
-    game.showLongText("Tarefa:", DialogLayout.Bottom)
-}
 function esquerda (aSprite: Sprite) {
-    grid.move(aSprite, 1, 0)
+    grid.move(aSprite, -1, 0)
     pause(200)
 }
 function subir (aSprite: Sprite) {
     grid.move(aSprite, 0, -1)
     pause(200)
 }
-function direita (aSprite: Sprite) {
-    grid.move(aSprite, -1, 0)
-    pause(200)
-}
-function inicialização () {
+function inicializar () {
     scene.setBackgroundImage(assets.image`tabuleiro`)
     tiles.setCurrentTilemap(tilemap`tabuleiro_tiles`)
     personagem = sprites.create(img`
@@ -40,11 +33,18 @@ function inicialização () {
     personagem.setStayInScreen(true)
     grid.place(personagem, tiles.getTileLocation(0, 0))
 }
+function mostrar_tarefa () {
+    game.showLongText("Tarefa:", DialogLayout.Bottom)
+}
+function direita (aSprite: Sprite) {
+    grid.move(aSprite, 1, 0)
+    pause(200)
+}
 function descer (aSprite: Sprite) {
     grid.move(aSprite, 0, 1)
     pause(200)
 }
 let personagem: Sprite = null
-inicialização()
-tarefa()
-solução()
+inicializar()
+mostrar_tarefa()
+solucionar()
