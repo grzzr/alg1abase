@@ -12,7 +12,7 @@ function subir (aSprite: Sprite) {
 function inicializar () {
     scene.setBackgroundImage(assets.image`tabuleiro`)
     tiles.setCurrentTilemap(tilemap`tabuleiro_tiles`)
-    personagem = sprites.create(img`
+    mySprite = sprites.create(img`
         . . . . . . f f f f . . . . . . 
         . . . . f f f 2 2 f f f . . . . 
         . . . f f f 2 2 2 2 f f f . . . 
@@ -30,8 +30,8 @@ function inicializar () {
         . . . . . f f f f f f . . . . . 
         . . . . . f f . . f f . . . . . 
         `, SpriteKind.Player)
-    personagem.setStayInScreen(true)
-    grid.place(personagem, tiles.getTileLocation(0, 0))
+    mySprite.setStayInScreen(true)
+    grid.place(mySprite, tiles.getTileLocation(0, 0))
 }
 function mostrar_tarefa () {
     game.showLongText("Tarefa:", DialogLayout.Bottom)
@@ -44,7 +44,7 @@ function descer (aSprite: Sprite) {
     grid.move(aSprite, 0, 1)
     pause(200)
 }
-let personagem: Sprite = null
+let mySprite: Sprite = null
 inicializar()
 mostrar_tarefa()
 solucionar()
